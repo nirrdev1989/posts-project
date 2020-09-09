@@ -1,0 +1,17 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <img
+            mat-card-avatar
+            [src]="user?.profile.imagePath || '../../../../assets/empty.jpg'"
+            alt
+        >
+        <mat-card-title>{{user?.email}}</mat-card-title>
+        <mat-card-subtitle>Email</mat-card-subtitle>
+    </mat-card-header>
+    <p>User name: {{user?.profile.userName}}</p>
+    <p>Birthday: {{user?.profile.birthday}}</p>
+    <p>Genus {{user?.profile.genus}}</p>
+    <mat-card-content>
+        <p>Some contant</p>
+    </mat-card-content>
+</mat-card>

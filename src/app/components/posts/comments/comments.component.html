@@ -1,0 +1,50 @@
+<h2 mat-dialog-title>
+    Comments
+    <div class="close">
+        <span mat-dialog-close>x</span>
+    </div>
+</h2>
+<hr>
+<mat-dialog-content class="mat-typography">
+    <p
+        class="info-text  mat-body-1"
+        *ngIf="comments.length == 0"
+    >
+        Has no comments yet for this post
+    </p>
+    <div class="list">
+        <div class="itemsList">
+            <mat-list *ngIf="comments.length > 0">
+                <div>
+                    <app-comment-item
+                        *ngFor="let comment of comments"
+                        [comment]="comment"
+                        [isAuth]="isAuth"
+                        [userId]="userId"
+                        (commentId)="onDeleteComment($event)"
+                    ></app-comment-item>
+                </div>
+            </mat-list>
+        </div>
+    </div>
+</mat-dialog-content>
+<hr>
+<mat-dialog-actions>
+    <div
+        class="field"
+        *ngIf="isAuth"
+    >
+        <span>Add your comment</span>
+        <div class="center-element">
+            <mat-form-field>
+                <input
+                    matInput
+                    type="text"
+                    placeholder="Comment*"
+                    (keyup.enter)="onAddCommentToPost($event)"
+                >
+            </mat-form-field>
+            <!-- <mat-icon>send</mat-icon> -->
+        </div>
+    </div>
+</mat-dialog-actions>

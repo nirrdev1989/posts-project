@@ -1,0 +1,27 @@
+:host {
+    display: block;
+    margin-top: 15px;
+}
+
+.info-text {
+    text-align: center;
+    font-size: 20px;
+}
+
+mat-spinner {
+    margin: auto;
+}
+
+mat-accordion {
+    margin: 3rem;
+}
+
+mat-list-item {
+    background-color: whitesmoke;
+    margin-bottom: 1rem;
+}
+
+.commnet-img {
+    margin-right: 1rem;
+    top: 0;
+}

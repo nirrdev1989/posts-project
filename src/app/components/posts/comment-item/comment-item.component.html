@@ -1,0 +1,31 @@
+<div class="item">
+    <img
+        mat-card-avatar
+        [src]=" comment.imagePath || '../../../../assets/empty.jpg'"
+        alt
+    >
+    <div
+        #item
+        class=" list-item"
+    >
+        <mat-list-item>
+            <small matLine>
+                <strong>{{comment.userName}}</strong>
+            </small>
+            <small matLine>{{comment.dateCreated}}</small>
+
+            <p matLine>Text:{{comment.text}}</p>
+
+        </mat-list-item>
+        <div class="close">
+            <mat-icon
+                *ngIf="isAuth && comment.creator === userId"
+                class="del-comment"
+                style=" margin-left: 4rem;"
+                (click)="deleteComment(comment._id)"
+            >
+                delete
+            </mat-icon>
+        </div>
+    </div>
+</div>

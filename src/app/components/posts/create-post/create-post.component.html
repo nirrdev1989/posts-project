@@ -1,0 +1,69 @@
+<h2 matLine>Create Post</h2>
+<hr>
+<mat-card>
+    <form
+        [formGroup]="postForm"
+        (ngSubmit)="onSavePost()"
+    >
+        <mat-form-field>
+            <input
+                matInput
+                type="text"
+                formControlName="title"
+                placeholder="Title*"
+            >
+            <mat-error *ngIf="getFormControl('title').invalid">
+                {{getErrorMessage(getFormControl('title'))}}
+            </mat-error>
+            <br>
+        </mat-form-field>
+        <button
+            mat-stroked-button
+            type="button"
+            (click)="filePick.click()"
+        >
+            Pick image
+        </button>
+        <input
+            #filePick
+            type="file"
+            (change)="onImagePicker($event)"
+        >
+        <div
+            class="image-preview"
+            *ngIf="imagePreview && getFormControl('image').valid"
+        >
+            <img
+                [src]="imagePreview"
+                [alt]="'No image'"
+            >
+        </div>
+        <mat-error *ngIf="getFormControl('image').invalid && imagePreview">
+            {{getErrorMessage(getFormControl('image'))}}
+        </mat-error>
+        <br>
+        <small *ngIf="!imagePreview">No file choosen</small>
+        <mat-form-field>
+            <textarea
+                matInput
+                rows="7"
+                formControlName="text"
+                placeholder="Text*"
+            ></textarea>
+            <br>
+            <mat-error *ngIf="getFormControl('text').invalid">
+                {{getErrorMessage(getFormControl('text'))}}
+            </mat-error>
+            &nbsp;
+        </mat-form-field>
+        <br>
+        <button
+            class="btn"
+            mat-raised-button
+            color="accent"
+            type="submit"
+        >
+            Save post
+        </button>
+    </form>
+</mat-card>

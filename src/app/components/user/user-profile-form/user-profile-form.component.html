@@ -1,0 +1,108 @@
+<h2 matLine>Register</h2>
+<hr>
+
+<mat-card class="user-form">
+    <form
+        [formGroup]="userProfileFrom"
+        (ngSubmit)="onSaveProfile()"
+    >
+        <mat-form-field>
+            <input
+                matInput
+                type="text"
+                formControlName="userName"
+                placeholder="User name*"
+            >
+            <mat-error *ngIf="getFormControl('userName').invalid">
+                {{getErrorMessage(getFormControl('userName'))}}
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <br>
+        <mat-form-field>
+            <input
+                matInput
+                type="date"
+                formControlName="birthday"
+                placeholder="Birthday*"
+            >
+            <mat-datepicker></mat-datepicker>
+            <mat-error *ngIf="getFormControl('birthday').invalid">
+                {{getErrorMessage(getFormControl('birthday'))}}
+            </mat-error>
+        </mat-form-field>
+        <div class="radio-group">
+            <mat-radio-group formControlName="genus">
+                <mat-radio-button value="male">Male</mat-radio-button>
+                &nbsp;
+                <mat-radio-button value="female">Female</mat-radio-button>
+                <mat-error *ngIf="getFormControl('genus').invalid">
+                    <small>
+                        {{getErrorMessage(getFormControl('genus'))}}
+                    </small>
+                </mat-error>
+            </mat-radio-group>
+        </div>
+        <button
+            mat-stroked-button
+            type="button"
+            (click)="filePick.click()"
+        >
+            Pick image
+        </button>
+        <input
+            #filePick
+            type="file"
+            (change)="onImagePicker($event)"
+        >
+        <div
+            class="image-preview"
+            *ngIf="imagePreview && getFormControl('image').valid"
+        >
+            <img
+                [src]="imagePreview"
+                [alt]="'No image'"
+            >
+        </div>
+        <mat-error *ngIf="getFormControl('image').invalid && imagePreview">
+            {{getErrorMessage(getFormControl('image'))}}
+        </mat-error>
+        <br>
+        <small *ngIf="!imagePreview">No file choosen</small>
+
+        <mat-form-field>
+            <input
+                matInput
+                type="text"
+                formControlName="email"
+                placeholder="Email*"
+            >
+            <mat-error *ngIf="getFormControl('email').invalid">
+                {{getErrorMessage(getFormControl('email'))}}
+            </mat-error>
+            <br>
+        </mat-form-field>
+        &nbsp;
+        <br>
+        <mat-form-field>
+            <input
+                matInput
+                type="password"
+                formControlName="password"
+                placeholder="Password*"
+            >
+            <mat-error *ngIf="getFormControl('password').invalid">
+                {{getErrorMessage(getFormControl('password'))}}
+            </mat-error>
+        </mat-form-field>
+
+        <button
+            class="btn"
+            mat-raised-button
+            color="accent"
+            type="submit"
+        >
+            Register
+        </button>
+    </form>
+</mat-card>

@@ -1,0 +1,120 @@
+<h3 mat-subheader>Image</h3>
+<mat-list-item>
+    <mat-icon mat-list-icon>
+        <img
+            mat-card-avatar
+            [src]="user?.profile.imagePath || '../../../../assets/empty.jpg'"
+            alt
+            [attr.data-propertyName]="'imagePath'"
+            [attr.data-value]="user?.profile.imagePath"
+            #image
+        >
+    </mat-icon>
+    <h4 mat-line></h4>
+    <span
+        class="edit-profile-btn"
+        (click)="editProfileItem(image.dataset)"
+    >
+        Edit
+    </span>
+</mat-list-item>
+<br>
+<mat-divider></mat-divider>
+
+<h3 mat-subheader>Email</h3>
+<mat-list-item>
+    <mat-icon mat-list-icon>email</mat-icon>
+    <h4
+        mat-line
+        #email
+        [attr.data-propertyName]="'email'"
+        [attr.data-value]="user.email"
+    >
+        {{user.email}}
+    </h4>
+    <span
+        class="edit-profile-btn"
+        (click)="editProfileItem(email.dataset)"
+    >
+        Edit
+    </span>
+</mat-list-item>
+<mat-divider></mat-divider>
+
+<h3 mat-subheader>User name</h3>
+<mat-list-item>
+    <mat-icon mat-list-icon>person</mat-icon>
+    <h4
+        mat-line
+        #userName
+        [attr.data-propertyName]="'userName'"
+        [attr.data-value]="user?.profile.userName"
+    >
+        {{user.profile.userName}}
+    </h4>
+    <span
+        class="edit-profile-btn"
+        (click)="editProfileItem(userName.dataset)"
+    >
+        Edit
+    </span>
+</mat-list-item>
+<mat-divider></mat-divider>
+
+<h3 mat-subheader>Birthday</h3>
+<mat-list-item>
+    <mat-icon mat-list-icon>event_note</mat-icon>
+    <h4
+        mat-line
+        #birthday
+        [attr.data-propertyName]="'birthday'"
+        [attr.data-value]="user?.profile.birthday"
+    >
+        {{user.profile.birthday}}
+    </h4>
+    <span
+        class="edit-profile-btn"
+        (click)="editProfileItem(birthday.dataset)"
+    >
+        Edit
+    </span>
+</mat-list-item>
+<mat-divider></mat-divider>
+
+<h3 mat-subheader>Genus</h3>
+<mat-list-item>
+    <mat-icon mat-list-icon>wc</mat-icon>
+    <h4
+        mat-line
+        #genus
+        [attr.data-propertyName]="'genus'"
+        [attr.data-value]="user?.profile.genus"
+    >
+        {{user.profile.genus}}
+    </h4>
+    <span
+        class="edit-profile-btn"
+        (click)="editProfileItem(genus.dataset)"
+    >
+        Edit
+    </span>
+</mat-list-item>
+<mat-divider></mat-divider>
+
+<div class="del-account">
+    <button
+        mat-raised-button
+        color="warn"
+        (click)="deleteAccount()"
+    >
+        Delete my account
+    </button>
+    &nbsp;
+    <mat-form-field>
+        <input
+            matInput
+            type="password"
+            placeholder="Passowrd*"
+        >
+    </mat-form-field>
+</div>

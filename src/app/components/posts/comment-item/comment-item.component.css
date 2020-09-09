@@ -1,0 +1,37 @@
+.del-comment:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.del-comment {
+    font-size: 17px;
+    float: right;
+}
+
+.item {
+    width: 100%;
+}
+
+.item img {
+    margin: 0.5rem;
+}
+
+.list-item {
+    background-color: whitesmoke;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    /* border-bottom: 1px solid red; */
+}
+
+mat-grid-list {
+    margin-bottom: 1rem;
+    background-color: whitesmoke;
+}
+
+.contant {
+    word-wrap: break-word;
+}

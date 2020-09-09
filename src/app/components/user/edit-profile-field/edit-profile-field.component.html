@@ -1,0 +1,86 @@
+<h2 mat-dialog-title>
+    Edit
+    <div class="close">
+        <span mat-dialog-close>x</span>
+    </div>
+</h2>
+<hr>
+<div class="edit">
+    <form
+        [formGroup]="editForm"
+        (ngSubmit)="onEiditProfileField()"
+    >
+        <div [ngSwitch]="filedProperyName">
+            <div *ngSwitchCase="'imagePath'">
+                <input
+                    #filePick
+                    type="file"
+                    (change)="onImagePicker($event)"
+                >
+                <div class="center-element">
+                    <div class="image-preview">
+                        <img
+                            [src]="imagePreview"
+                            [alt]="'No image'"
+                            (click)="filePick.click()"
+                        >
+                    </div>
+                </div>
+            </div>
+            <div *ngSwitchCase="'email'">
+                <mat-form-field>
+                    <input
+                        matInput
+                        [type]="'email'"
+                        [placeholder]="filedProperyName + '*' | firstCharToUpperCase"
+                        [formControlName]="filedProperyName"
+                    >
+                    <br>
+                </mat-form-field>
+            </div>
+            <div *ngSwitchCase="'birthday'">
+                <mat-form-field>
+                    <input
+                        matInput
+                        [type]="'date'"
+                        [placeholder]="filedProperyName + '*' | firstCharToUpperCase"
+                        [formControlName]="filedProperyName"
+                    >
+                    <br>
+                </mat-form-field>
+            </div>
+            <div *ngSwitchCase="'genus'">
+                <h3>Genus</h3>
+                <mat-radio-group [formControlName]="filedProperyName">
+                    <mat-radio-button value="male">Male</mat-radio-button>
+                    &nbsp;
+                    <mat-radio-button value="female">Female</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div *ngSwitchDefault>
+                <mat-form-field>
+                    <input
+                        matInput
+                        [type]="'text'"
+                        [placeholder]="filedProperyName + '*' | firstCharToUpperCase"
+                        [formControlName]="filedProperyName"
+                    >
+                    <br>
+                </mat-form-field>
+            </div>
+            <mat-error *ngIf="getFormControl(filedProperyName).invalid">
+                <small>
+                    {{getErrorMessage(getFormControl(filedProperyName))}}
+                </small>
+            </mat-error>
+        </div>
+        <button
+            class="btn"
+            mat-raised-button
+            color="accent"
+            type="submit"
+        >
+            Save
+        </button>
+    </form>
+</div>

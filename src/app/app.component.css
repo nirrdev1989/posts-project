@@ -1,0 +1,43 @@
+main {
+    width: 70%;
+    margin: 3rem auto;
+    /* margin-bottom: 4rem; */
+}
+
+button:focus {
+    outline: none !important;
+    background-color: transparent!important;
+}
+
+.filler {
+    flex: 1 1 auto;
+    width: 100%;
+}
+
+.user-avatar {
+    max-height: 35px;
+    border-radius: 4px;
+}
+
+.toolbar-tools {
+    display: flex;
+    width: 100%;
+}
+
+mat-sidenav {
+    width: 250px;
+}
+
+.user {
+    align-items: center;
+}
+
+.time {
+    margin-left: 2rem;
+}
+
+mat-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}

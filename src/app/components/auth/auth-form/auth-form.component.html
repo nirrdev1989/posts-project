@@ -1,0 +1,43 @@
+<h2 matLine>Login</h2>
+<hr>
+<mat-card>
+    <form
+        [formGroup]="authForm"
+        (ngSubmit)="onSubmit()"
+    >
+        <mat-form-field>
+            <input
+                matInput
+                type="text"
+                formControlName="email"
+                placeholder="Email*"
+            >
+            <mat-error *ngIf="getFormControl('email').invalid">
+                {{getErrorMessage(getFormControl('email'))}}
+            </mat-error>
+            <br>
+        </mat-form-field>
+        &nbsp;
+        <br>
+        <mat-form-field>
+            <input
+                matInput
+                type="password"
+                formControlName="password"
+                placeholder="Password*"
+            >
+            <mat-error *ngIf="getFormControl('password').invalid">
+                {{getErrorMessage(getFormControl('password'))}}
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <br>
+        <button
+            mat-raised-button
+            color="accent"
+            type="submit"
+        >
+            Login
+        </button>
+    </form>
+</mat-card>

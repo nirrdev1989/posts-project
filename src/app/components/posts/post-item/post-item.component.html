@@ -1,0 +1,67 @@
+<mat-card class="example-card ">
+    <mat-card-header>
+
+        <img
+            mat-card-avatar
+            [src]="post.creatorImagePath || '../../../../assets/empty.jpg'"
+            alt
+        >
+        <mat-card-title>
+            <p>{{post.userName}}</p>
+            <mat-card-subtitle>{{post.dateCreated}}</mat-card-subtitle>
+        </mat-card-title>
+    </mat-card-header>
+
+    <div class="post-image center-element">
+        <img
+            mat-card-image
+            [src]="post.imagePath"
+            alt="Photo of a Shiba Inu"
+        >
+    </div>
+
+    <mat-card-content>
+        <small>Title:</small>
+        <h3>
+            <strong>{{post.title}}</strong>
+        </h3>
+        <small>Description:</small>
+        <p>{{post.text}}</p>
+    </mat-card-content>
+    <hr>
+    <mat-card-actions>
+        <button
+            mat-button
+            (click)="onOpenComments(post._id)"
+        >
+            COMMENTS
+        </button>
+        <small [matBadge]="post.commentsLength"></small>
+
+        <div class="actions-btn">
+            <mat-action-row *ngIf="isAuth && userId === post.creator">
+                <button
+                    mat-button
+                    color="warn"
+                    [routerLink]="['/edit', post._id]"
+                >
+                    Edit
+                </button>
+                <button
+                    mat-button
+                    color="accent"
+                    (click)="onDeletePost(post._id)"
+                >
+                    Delete
+                </button>
+            </mat-action-row>
+        </div>
+    </mat-card-actions>
+</mat-card>
+
+<!-- <mat-icon
+        [ngClass]="isLike ? 'like' : 'unlike'"
+        (click)="onLike(post._id)"
+    >
+        thumb_up
+    </mat-icon> -->

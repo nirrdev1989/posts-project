@@ -1,0 +1,14 @@
+.edit-profile-btn {
+    cursor: pointer;
+}
+
+.del-account mat-form-field {
+    width: 80%;
+}
+
+.del-account {
+    margin-top: 2rem;
+    width: 100%;
+    background-color: whitesmoke;
+    padding: 1rem;
+}

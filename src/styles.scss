@@ -1,0 +1,75 @@
+/* You can add global styles to this file, and also import other style files */
+
+// BEFORE
+// "./node_modules/@angular/material/prebuilt-themes/indigo-pink.scss",
+
+// @import  "~@angular/material/prebuilt-themes/pink.css";
+// @import '~@angular/material/theming';
+
+// @include mat-core();
+
+// $custom-primary: mat-palette(mat-deep-purple);
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+
+::-webkit-scrollbar-track {
+   background: #f1f1f1; 
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+
+
+
+ button:focus {
+    outline: none !important;
+}
+
+
+.center-element{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="file"] {
+    visibility: hidden;
+}
+
+.image-preview {
+    height: 4rem;
+    margin: 1rem 0;
+}
+
+.image-preview img {
+    height: 100%;
+}
+
+.spacer {
+    flex: 1 1 auto;
+  }
+
+  .close {
+    float: right
+}

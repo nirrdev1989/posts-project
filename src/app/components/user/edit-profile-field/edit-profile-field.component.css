@@ -1,0 +1,27 @@
+.edit {
+    width: 300px;
+}
+
+form {
+    width: 90%;
+    margin: 0.1rem auto
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.btn {
+    height: 32px;
+    font-size: 13px;
+    margin-top: 1rem;
+    bottom: 0;
+}
+
+.image-preview img {
+    width: 150px;
+}
+
+img:hover {
+    cursor: pointer;
+}

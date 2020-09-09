@@ -1,0 +1,30 @@
+<div class="posts-list">
+    <h2 matLine>Posts list</h2>
+    <hr>
+
+    <div *ngIf="posts.length > 0">
+        <div *ngFor="let post of posts">
+            <app-post-item
+                [post]="post"
+                [userId]="userId"
+                [isAuth]="isAuth"
+                (postDeleted)="onDeletePost($event)"
+                (openComments)="onOpenComments($event)"
+            >
+            </app-post-item>
+        </div>
+    </div>
+
+    <mat-paginator
+        [length]="lengthOfPosts"
+        [pageSize]="pageSizePosts"
+        [pageSizeOptions]="pageSizeOptionsPosts"
+        (page)="onChangePage($event)"
+    ></mat-paginator>
+    <p
+        class="info-text  mat-body-1"
+        *ngIf="posts.length == 0"
+    >
+        Has no posts yet
+    </p>
+</div>

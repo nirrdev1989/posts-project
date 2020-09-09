@@ -1,0 +1,31 @@
+.post-image img {
+    height: 300px;
+    width: 100%;
+}
+
+mat-card {
+    margin-bottom: 2rem;
+}
+
+.actions-btn {
+    float: right;
+}
+
+.unlike {
+    margin-left: 0.5rem;
+    opacity: 0.7;
+}
+
+.like {
+    margin-left: 0.5rem;
+    color: rgb(12, 107, 250);
+}
+
+.like:hover, .unlike:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.mat-badge-content {
+    background-color: rgb(48, 145, 91);
+}
