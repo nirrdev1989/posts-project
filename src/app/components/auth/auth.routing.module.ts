@@ -4,7 +4,7 @@ import { AuthFormComponent } from "./auth-form/auth-form.component";
 
 const routes: Routes = [
     {
-        path: ':status',
+        path: 'login',
         component: AuthFormComponent
     },
 ]

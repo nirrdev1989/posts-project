@@ -3,22 +3,21 @@ export interface Post {
     title: string
     text: string
     imagePath: string | File
-    creator?: string
+    creator: string
     comments?: Comment[]
-    commentsLength?: number
-    creatorImagePath?: string
-    userName?: string
-    likeLength?: number
-    dateCreated?: Date | string
+    commentsLength: number
+    creatorImagePath: string
+    userName: string
+    dateCreated: Date | string
 }
 
 
 export interface Comment {
-    _id?: string
-    creator?: string
+    _id: string
+    creator: string
     text: string
-    userName?: string
-    dateCreated?: Date | string
-    imagePath?: string
+    userName: string
+    dateCreated: Date | string
+    imagePath: string
 }
 

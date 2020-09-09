@@ -49,11 +49,9 @@ export class CommentsComponent implements OnInit {
         if (value === '') {
             return
         }
-        const newComment: Comment = {
-            text: value
-        }
 
-        this.postService.addCommentToPost(this.postId, newComment)
+
+        this.postService.addCommentToPost(this.postId, value)
             .subscribe((result) => {
                 this.comments.push(this.mapingComments([result.comment])[0])
                 event.target.value = ''

@@ -79,13 +79,11 @@ export class PostService {
     }
 
 
-    public addPost(post: Post): Observable<{ message: string }> {
-        const newPost: Post = { ...post }
-
+    public addPost(title: string, text: string, imagePath: File): Observable<{ message: string }> {
         const postData = new FormData()
-        postData.append('title', newPost.title)
-        postData.append('text', newPost.text)
-        postData.append('image', newPost.imagePath)
+        postData.append('title', title)
+        postData.append('text', text)
+        postData.append('image', imagePath)
 
         return this.http.post<{
             message: string,
@@ -99,30 +97,33 @@ export class PostService {
     }
 
 
-    public updatePost(post: Post): Observable<{ message: string }> {
-        const newPost: Post = { ...post }
-        let postData: Post | FormData
-        if (newPost.imagePath instanceof File) {
+    public updatePost(postId: string, title: string, text: string, imagePath: string | File): Observable<{ message: string }> {
+        let postData
+        if (imagePath instanceof File) {
             postData = new FormData()
-            postData.append('id', newPost._id)
-            postData.append('title', newPost.title)
-            postData.append('text', newPost.text)
-            postData.append('image', newPost.imagePath)
+            postData.append('id', postId)
+            postData.append('title', title)
+            postData.append('text', text)
+            postData.append('image', imagePath)
         } else {
-            postData = { ...newPost }
+            postData = {
+                title: title,
+                text: text,
+                imagePath: imagePath
+            }
         }
 
         return this.http.put<{
             message: string
-        }>(`http://localhost:4455/api/posts/update/${newPost._id}`, postData)
+        }>(`http://localhost:4455/api/posts/update/${postId}`, postData)
     }
 
 
-    public addCommentToPost(postId: string, comment: Comment): Observable<{ message: string, comment: Comment }> {
+    public addCommentToPost(postId: string, comment: string): Observable<{ message: string, comment: Comment }> {
         return this.http.post<{
             message: string,
             comment: Comment
-        }>(`http://localhost:4455/api/posts/add/comment/${postId}`, comment)
+        }>(`http://localhost:4455/api/posts/add/comment/${postId}`, { text: comment })
             .pipe(
                 tap(() => {
                     this.commentsCount(this.post, 'add')

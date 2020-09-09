@@ -93,20 +93,20 @@ export class CreatePostComponent implements OnInit, OnDestroy {
 
         const { title, text, image } = this.postForm.value
 
-        const newPost: Post = {
-            _id: this.postId,
-            title: title,
-            text: text,
-            imagePath: image
-        }
+        // const newPost: Post = {
+        //     _id: this.postId,
+        //     title: title,
+        //     text: text,
+        //     imagePath: image
+        // }
 
         if (this.mode === 'create') {
-            this.postService.addPost(newPost)
+            this.postService.addPost(title, text, image)
                 .subscribe((result) => {
                     this.router.navigate(['/'])
                 })
         } else {
-            this.postService.updatePost(newPost)
+            this.postService.updatePost(this.postId, title, text, image)
                 .subscribe((result) => {
                     this.router.navigate(['/'])
                 })
