@@ -12,13 +12,13 @@ export class LoaderInterceptor implements HttpInterceptor {
     constructor(private httpEventsService: HttpEventsService) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler) {
-        // this.httpEventsService.setStatus(true)
+        this.httpEventsService.setStatus(true)
         return next.handle(request)
             .pipe(
                 tap((result) => {
                     // console.log(result)
                     if (result instanceof HttpResponse) {
-                        // this.httpEventsService.setStatus(false)
+                        this.httpEventsService.setStatus(false)
                     }
                 })
             )

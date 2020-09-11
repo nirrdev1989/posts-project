@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpEvent } from "@angular/common/http";
-import { Post } from '../models/Post';
-import { Subject, Observable, Observer, BehaviorSubject } from "rxjs";
-import { map, tap } from "rxjs/operators";
-import { Router } from '@angular/router';
-import { AuthService } from './auth.service';
+import { Observable, BehaviorSubject } from "rxjs";
+
 
 @Injectable({
     providedIn: 'root'
@@ -15,11 +12,7 @@ export class HttpEventsService {
     private statusChange: BehaviorSubject<boolean>
     private status: boolean
 
-    constructor(
-        private http: HttpClient,
-        private router: Router,
-        private authService: AuthService
-    ) {
+    constructor() {
         this.status = false
         this.statusChange = new BehaviorSubject<boolean>(this.status)
     }
