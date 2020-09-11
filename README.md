@@ -1,4 +1,18 @@
-# Front
+# Posts App
+
+A simple project of users who can sign up and log in
+And post posts and comment on others' posts
+A small social network.
+The system includes a permissions system
+
+The project was written with Angular Node and Mongo
+
+Operating Instructions
+
+1-Download the project
+2- Run the ng serve  command in the front folder
+3 - Enter the server folder and run the npm start command
+4- Connect to your local Mongo server
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.4.
 
