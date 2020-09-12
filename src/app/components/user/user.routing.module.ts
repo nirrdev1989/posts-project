@@ -6,7 +6,7 @@ import { AuthGuard } from 'src/app/services/guards/auth-guard';
 
 const routes: Routes = [
     {
-        path: 'create/profile/:mode',
+        path: 'create/profile/register',
         component: UserProfileFormComponent
     },
     {

@@ -17,7 +17,7 @@ app.use(express.json())
 app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 app.use('/images', express.static(path.resolve('./images')))
-app.use(express.static('../dist'))
+// app.use(express.static('../dist'))
 
 
 const postRouter = require('./routes/posts')
