@@ -9,10 +9,10 @@ The project was written with Angular Node and Mongo
 
 Operating Instructions
 
-1-Download the project
-2- Run the ng serve  command in the front folder
-3 - Enter the server folder and run the npm start command
-4- Connect to your local Mongo server
+Download the project
+Run the ng serve  command in the front folder
+ Enter the server folder and run the npm start command
+Connect to your local Mongo server
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.4.
 
