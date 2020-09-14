@@ -1,6 +1,6 @@
 # Posts App
 * Demo https://postsmeanstack.herokuapp.com/
-#
+# Description
 A simple project of users who can sign up and log in
 And post posts and comment on others' posts
 A small social network.
