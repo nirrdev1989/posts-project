@@ -1,6 +1,6 @@
 # Posts App
-https://postsmeanstack.herokuapp.com/
-#
+* Demo https://postsmeanstack.herokuapp.com/
+# Description
 A simple project of users who can sign up and log in
 And post posts and comment on others' posts
 A small social network.
@@ -8,12 +8,13 @@ The system includes a permissions system
 
 The project was written with Angular Node and Mongo
 
-Operating Instructions
+# Operating Instructions
 
-Download the project
-Run the ng serve  command in the front folder
- Enter the server folder and run the npm start command
-Connect to your local Mongo server
+* Download the project
+* Run the ng serve  command in the front folder
+* Enter the server folder and run the npm start command
+* Connect to your local Mongo server
+* Create images folder at server folder that will store images
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.4.
 

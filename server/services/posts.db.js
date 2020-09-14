@@ -31,7 +31,8 @@ module.exports = {
                     }
                 },
             },
-        ])
+        ]) 
+          .sort({ _id: -1 })
             .skip(pageSize * (currentPage - 1))
             .limit(pageSize)
     },
