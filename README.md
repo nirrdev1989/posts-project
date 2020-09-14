@@ -10,11 +10,11 @@ The project was written with Angular Node and Mongo
 
 # Operating Instructions
 
-Download the project
-Run the ng serve  command in the front folder
-Enter the server folder and run the npm start command
-Connect to your local Mongo server
-Create images folder at server folder that will store images
+-Download the project
+-Run the ng serve  command in the front folder
+-Enter the server folder and run the npm start command
+-Connect to your local Mongo server
+-Create images folder at server folder that will store images
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.4.
 
