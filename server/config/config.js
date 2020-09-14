@@ -1,7 +1,7 @@
 require('dotenv/config')
 module.exports = {
     MONGO: {
-        url: process.env.MONGO_URL
+        url: process.env.MONGO_URI
     },
     ACCESSE_TOKEN: {
         seconds: 60 * 5,

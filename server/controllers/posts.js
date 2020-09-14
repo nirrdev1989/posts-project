@@ -32,7 +32,7 @@ exports.getPosts = async (request, response, next) => {
 }
 
 
-exports.getSinglePost = async (request, response) => {
+exports.getSinglePost = async (request, response, next) => {
     const { id } = request.params
 
     try {
@@ -60,7 +60,7 @@ exports.getSinglePost = async (request, response) => {
 }
 
 
-exports.addPost = async (request, response) => {
+exports.addPost = async (request, response, next) => {
     let imagePath = createImagePath(request)
 
     const { title, text } = request.body
@@ -95,7 +95,7 @@ exports.addPost = async (request, response) => {
 }
 
 
-exports.deletePost = async (request, response) => {
+exports.deletePost = async (request, response, next) => {
     const { id } = request.params
     const { userId } = request.userData
 
@@ -128,7 +128,7 @@ exports.deletePost = async (request, response) => {
 }
 
 
-exports.updatePost = async (request, response) => {
+exports.updatePost = async (request, response, next) => {
     let imagePath = createImagePath(request)
 
     const { title, text } = request.body
@@ -171,7 +171,7 @@ exports.updatePost = async (request, response) => {
 }
 
 
-exports.addCommentToPost = async function (request, response) {
+exports.addCommentToPost = async function (request, response, next) {
     const { text } = request.body
     const { userId, userName, userImagePath } = request.userData
 
@@ -203,7 +203,7 @@ exports.addCommentToPost = async function (request, response) {
 }
 
 
-exports.deleteCommentFromPost = async function (request, response) {
+exports.deleteCommentFromPost = async function (request, response, next) {
     const { id, commentId } = request.params
     const { userId } = request.userData
 

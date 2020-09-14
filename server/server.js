@@ -17,7 +17,7 @@ app.use(express.json())
 app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 app.use('/images', express.static(path.resolve('./images')))
-// app.use(express.static('../dist'))
+
 
 
 const postRouter = require('./routes/posts')
@@ -27,12 +27,6 @@ const usersRouter = require('./routes/users')
 app.use('/api/posts', postRouter)
 app.use('/api/users', usersRouter)
 
-
-
-
-// app.get('/*', (request, response) => {
-//     response.sendFile(path.resolve('dist/shop/index.html'))
-// })
 
 app.use(urlError)
 app.use(handleApiError)
