@@ -79,6 +79,11 @@ export class PostService {
     }
 
 
+    public getPostsOfUser(userId: string) {
+        return this.http.get(`http://localhost:4455/api/posts/user/${userId}`)
+    }
+
+
     public addPost(title: string, text: string, imagePath: File): Observable<{ message: string }> {
         const postData = new FormData()
         postData.append('title', title)

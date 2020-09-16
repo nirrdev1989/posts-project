@@ -22,12 +22,12 @@ export class AuthInterceptor implements HttpInterceptor {
         return next.handle(authRequest)
             .pipe(
                 tap(() => {
-                    console.log('TOKEN IS VALID')
+                    // console.log('TOKEN IS VALID')
                 }),
                 catchError((error) => {
                     console.log(error.status, error.message)
                     if (error instanceof HttpErrorResponse && error.status === 401) {
-                        console.log('EXPIRE TOKEN TIME')
+                        // console.log('EXPIRE TOKEN TIME')
                         return this.handleIf401Error(request, next)
                     }
                     return throwError(error)
@@ -51,7 +51,7 @@ export class AuthInterceptor implements HttpInterceptor {
             return this.authService.getNewAccessToken()
                 .pipe(
                     switchMap((result) => {
-                        console.log('REFRESH TOKEN PROCCESS START')
+                        // console.log('REFRESH TOKEN PROCCESS START')
                         this.isRefreshToken = false
                         this.accessTokenChange.next(result.token)
 

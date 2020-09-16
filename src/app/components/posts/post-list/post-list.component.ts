@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { PageEvent } from '@angular/material/paginator';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { CommentsComponent } from '../comments/comments.component';
+import { HttpEventsService } from 'src/app/services/http-events.service';
 
 
 @Component({
@@ -30,12 +31,16 @@ export class PostListComponent implements OnInit, OnDestroy {
     constructor(
         private postService: PostService,
         private authService: AuthService,
-        private dialog: MatDialog) {
+        private dialog: MatDialog,
+        private httpEventsService: HttpEventsService) {
         this.posts = []
     }
 
 
+
+
     ngOnInit(): void {
+        this.httpEventsService.setStatus(true)
         this.postService.getPosts(this.pageSizePosts, this.currentPage).subscribe()
 
         this.userId = this.authService.getUserId()
@@ -60,6 +65,16 @@ export class PostListComponent implements OnInit, OnDestroy {
         this.currentPage = event.pageIndex + 1
         this.pageSizePosts = event.pageSize
         this.postService.getPosts(this.pageSizePosts, this.currentPage).subscribe()
+    }
+
+    // on proccess
+    onSelectUser(userId: string): void {
+        console.log(userId)
+        this.postService.getPostsOfUser(userId).subscribe(
+            (result) => {
+                console.log(result)
+            }
+        )
     }
 
 

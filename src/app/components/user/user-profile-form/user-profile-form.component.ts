@@ -6,6 +6,7 @@ import { uploadFilePiker } from "../../../services/forms/upload.file";
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/UserProfile';
 import { Router } from '@angular/router';
+import { HttpEventsService } from 'src/app/services/http-events.service';
 
 
 
@@ -23,6 +24,7 @@ export class UserProfileFormComponent implements OnInit {
     constructor(
         private formBuilder: FormBuilder,
         private userService: UserService,
+        private httpEventsService: HttpEventsService,
         private router: Router,
     ) { }
 
@@ -58,6 +60,8 @@ export class UserProfileFormComponent implements OnInit {
             return
         }
 
+        this.httpEventsService.setStatus(true)
+
         const {
             userName,
             genus,
@@ -80,7 +84,7 @@ export class UserProfileFormComponent implements OnInit {
 
         this.userService.register(newProfile)
             .subscribe((result) => {
-                this.router.navigate(['/'])
+                this.router.navigate(['/auth/login'])
             })
     }
 

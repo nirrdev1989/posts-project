@@ -2,9 +2,11 @@
     <mat-card-header>
 
         <img
+            class="img-profile"
             mat-card-avatar
             [src]="post.creatorImagePath || '../../../../assets/empty.jpg'"
             alt
+            (click)="selectUser(post.creator)"
         >
         <mat-card-title>
             <p>{{post.userName}}</p>

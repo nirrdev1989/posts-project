@@ -18,6 +18,7 @@ export class PostItemComponent {
     @Input() isLike: boolean = false
     @Output() postDeleted: EventEmitter<string> = new EventEmitter<string>()
     @Output() openComments: EventEmitter<string> = new EventEmitter<string>()
+    @Output() userSelected: EventEmitter<string> = new EventEmitter<string>()
 
 
     onOpenComments(postId: string): void {
@@ -31,7 +32,10 @@ export class PostItemComponent {
         } else {
             return
         }
+    }
 
+    selectUser(userId: string): void {
+        this.userSelected.emit(userId)
     }
 
 }

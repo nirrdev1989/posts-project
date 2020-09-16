@@ -22,6 +22,7 @@ export class EditProfileFieldComponent implements OnInit {
     inputType: string
     inputValue: any
     imagePreview: any
+    loading: boolean = false
 
     constructor(
         @Inject(MAT_DIALOG_DATA) public data: EditProperyUser,
@@ -67,6 +68,7 @@ export class EditProfileFieldComponent implements OnInit {
             return
         }
 
+        this.loading = true
         const value = Object.values(this.editForm.value)[0]
 
 
@@ -77,11 +79,14 @@ export class EditProfileFieldComponent implements OnInit {
 
         this.userService.userUpdateProfile(editInfo)
             .subscribe((result) => {
+                this.loading = false
                 this.authService.logout()
                     .subscribe(() => {
                         this.dialog.closeAll()
                         this.router.navigate(['/auth/login'])
                     })
+            }, (error) => {
+                this.loading = false
             })
     }
 

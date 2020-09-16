@@ -9,6 +9,9 @@ module.exports = {
         return await PostModel.countDocuments()
     },
     filtredPosts: async function (pageSize, currentPage) {
+        // if (userId) {
+        //     return await PostModel.find({ creator: userId })
+        // }
         return await PostModel.aggregate([
             {
                 $project: {
@@ -31,8 +34,8 @@ module.exports = {
                     }
                 },
             },
-        ]) 
-          .sort({ _id: -1 })
+        ])
+            .sort({ _id: -1 })
             .skip(pageSize * (currentPage - 1))
             .limit(pageSize)
     },

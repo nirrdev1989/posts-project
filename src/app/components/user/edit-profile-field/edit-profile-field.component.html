@@ -5,7 +5,10 @@
     </div>
 </h2>
 <hr>
-<div class="edit">
+<div
+    class="edit"
+    [ngClass]="loading ? 'spinner': 'edit'"
+>
     <form
         [formGroup]="editForm"
         (ngSubmit)="onEiditProfileField()"

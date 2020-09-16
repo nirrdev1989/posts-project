@@ -3,8 +3,16 @@
     width: 100%;
 }
 
+.example-card {
+    max-width: 1000px;
+}
+
 mat-card {
     margin-bottom: 2rem;
+}
+
+.img-profile {
+    cursor: pointer;
 }
 
 .actions-btn {

@@ -8,6 +8,9 @@ const storeImages = require('../middleweres/multer.images.storage')
 
 router.get('', PostController.getPosts)
 
+// on proeccess
+// router.get('/user/:userId', PostController.getPostsOfUser)
+
 
 router.post('/new', authToken, storeImages, PostController.addPost)
 

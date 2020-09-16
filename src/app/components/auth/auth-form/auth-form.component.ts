@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { AuthService } from "../../../services/auth.service";
 import { Router } from '@angular/router';
 import { errorMessage } from "../../../services/forms/error.message";
+import { HttpEventsService } from 'src/app/services/http-events.service';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class AuthFormComponent implements OnInit, OnDestroy {
         private formBulider: FormBuilder,
         private authService: AuthService,
         private router: Router,
+        private httpEventsService: HttpEventsService
     ) { }
 
     ngOnInit(): void {
@@ -36,6 +38,7 @@ export class AuthFormComponent implements OnInit, OnDestroy {
         if (this.authForm.invalid) {
             return
         }
+        this.httpEventsService.setStatus(true)
 
         const { email, password } = this.authForm.value
 

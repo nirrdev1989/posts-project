@@ -8,15 +8,16 @@ const { createErrorMessage } = require('../middleweres/handle.api.error')
 exports.getPosts = async (request, response, next) => {
     const pageSize = Number(request.query.pageSize);
     const currentPage = Number(request.query.currentPage)
+    const { userId } = request.params
 
     try {
-        const postsFiltred = await postsService.filtredPosts(pageSize, currentPage)
+        const postsFiltred = await postsService.filtredPosts(pageSize, currentPage, userId)
 
         const postsCount = await postsService.getCountPosts()
 
         response.status(200).send({
             message: 'OK POSTS GET',
-            posts: postsFiltred.reverse(),
+            posts: postsFiltred,
             maxCount: postsCount
         })
     } catch (error) {
@@ -28,8 +29,18 @@ exports.getPosts = async (request, response, next) => {
             )
         )
     }
-
 }
+
+//on proccess
+// exports.getPostsOfUser = async function (request, respone, next) {
+//     console.log(request.params.userId)
+//     PostModel.find({
+//         creator: request.params.userId
+//     }).then((result) => {
+//         console.log(result)
+//         respone.send(result)
+//     })
+// }
 
 
 exports.getSinglePost = async (request, response, next) => {
@@ -72,7 +83,8 @@ exports.addPost = async (request, response, next) => {
         imagePath: imagePath,
         creator: userId,
         creatorImagePath: userImagePath,
-        userName: userName
+        userName: userName,
+        commentsLength: 0
     })
 
 
@@ -93,6 +105,8 @@ exports.addPost = async (request, response, next) => {
     }
 
 }
+
+
 
 
 exports.deletePost = async (request, response, next) => {

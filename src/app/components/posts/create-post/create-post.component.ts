@@ -7,6 +7,7 @@ import { Subscription } from 'rxjs';
 import { mimeType } from "../../../services/forms/mine.type.validator";
 import { errorMessage } from "../../../services/forms/error.message";
 import { uploadFilePiker } from "../../../services/forms/upload.file";
+import { HttpEventsService } from 'src/app/services/http-events.service';
 
 
 
@@ -29,6 +30,7 @@ export class CreatePostComponent implements OnInit, OnDestroy {
         private postService: PostService,
         private formBuilder: FormBuilder,
         private router: Router,
+        private httpEventsService: HttpEventsService,
         public route: ActivatedRoute
     ) { }
 
@@ -91,14 +93,10 @@ export class CreatePostComponent implements OnInit, OnDestroy {
             return
         }
 
+        this.httpEventsService.setStatus(true)
+
         const { title, text, image } = this.postForm.value
 
-        // const newPost: Post = {
-        //     _id: this.postId,
-        //     title: title,
-        //     text: text,
-        //     imagePath: image
-        // }
 
         if (this.mode === 'create') {
             this.postService.addPost(title, text, image)
