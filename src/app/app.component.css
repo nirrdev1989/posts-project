@@ -1,7 +1,13 @@
 main {
     width: 60%;
     margin: 3rem auto;
-    /* margin-bottom: 4rem; */
+    margin-bottom: 4rem;
+}
+
+@media screen and (max-width: 380px) {
+    main {
+        width: 95%;
+    }
 }
 
 button:focus {

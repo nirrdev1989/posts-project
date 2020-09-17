@@ -11,6 +11,17 @@ mat-form-field {
 }
 
 .mat-typography {
-    height: 300px;
-    /* width: 600px; */
+    height: 315px;
+    /* min-width: 500px; */
 }
+
+.container {
+    /* max-width: 500px; */
+    /* min-width: 500px; */
+}
+
+/* @media screen and (max-width: 500px) {
+    .container {
+        overflow-x: hidden;
+    }
+} */
